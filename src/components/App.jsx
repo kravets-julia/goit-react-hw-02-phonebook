@@ -1,6 +1,5 @@
 import { Component } from 'react';
 
-import { nanoid } from 'nanoid';
 import { ContactsList } from './ContactsList/ContactsList';
 import { Form } from './Form/Form';
 import { FilterContacts } from './FilterContacts/FilterContacts';
@@ -47,7 +46,7 @@ export class App extends Component {
   };
 
   render() {
-    const { contacts, filter } = this.state;
+    const { filter } = this.state;
 
     const normalizedFilter = this.state.filter.toLowerCase();
     const filteredContacts = this.state.contacts.filter(contact =>
