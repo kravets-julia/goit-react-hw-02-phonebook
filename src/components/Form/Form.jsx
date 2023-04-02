@@ -66,7 +66,11 @@ export class Form extends Component {
               className={css.input}
             />
           </label>
-          <button type="submit" className={css.btn}>
+          <button
+            type="submit"
+            className={css.btn}
+            disabled={!this.state.name || !this.state.number}
+          >
             Add contact
           </button>
         </form>
