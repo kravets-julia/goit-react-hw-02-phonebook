@@ -1,4 +1,5 @@
-import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
+
 import { Component } from 'react';
 
 import css from '../../components/Form/Form.module.css';
@@ -7,7 +8,6 @@ export class Form extends Component {
   state = {
     name: '',
     number: '',
-    id: nanoid(),
   };
 
   //   id = nanoid();
@@ -17,9 +17,9 @@ export class Form extends Component {
     this.setState({ [name]: value });
   };
 
-  idChange = () => {
-    this.setState({ id: nanoid() });
-  };
+  // idChange = () => {
+  //   this.setState({ id: nanoid() });
+  // };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -78,3 +78,7 @@ export class Form extends Component {
     );
   }
 }
+
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { ContactsListitem } from 'components/ContactsListitem/ContactsListitem';
 import css from '../../components/ContactsList/ContactsList.module.css';
 
@@ -18,4 +19,11 @@ export const ContactsList = ({ contacts, onDeleteContact }) => {
       </ul>
     </div>
   );
+};
+
+ContactsList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.objectOf(PropTypes.string.isRequired).isRequired
+  ).isRequired,
+  onDeleteContact: PropTypes.func.isRequired,
 };

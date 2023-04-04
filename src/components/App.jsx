@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { nanoid } from 'nanoid';
 
 import { ContactsList } from './ContactsList/ContactsList';
 import { Form } from './Form/Form';
@@ -29,14 +30,16 @@ export class App extends Component {
 
   formSubmitHandler = data => {
     // console.log(data);
-    this.state.contacts.find(contact => contact.name === data.name)
+    this.state.contacts.find(
+      contact => contact.name.toLowerCase() === data.name.toLowerCase()
+    )
       ? alert(`${data.name} is alredy in contacts`)
       : this.setState(prevState => {
           return {
             contacts: [
               ...prevState.contacts,
               {
-                id: data.id,
+                id: nanoid(),
                 name: data.name,
                 number: data.number,
               },
